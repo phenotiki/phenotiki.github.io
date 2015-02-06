@@ -1,0 +1,194 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Phenotiki - Plant Phenotyping in a Box</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<script src="js/jquery.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+</head>
+<body>
+<!-- header -->
+	<div class="banner">
+		<div class="container">
+			<div class="header">
+				<div class="head-nav">
+						<span class="menu"> </span>
+							<ul class="cl-effect-1">
+								<li class="active"><a href="index.html">Home</a></li>
+								<li><a href="comingsoon.html">Installation</a></li>
+								<li><a href="comingsoon.html">Use</a></li>
+								<li><a href="comingsoon.html">Download</a></li>
+								<li><a href="publications.html">Publications</a></li>
+								<li><a href="contacts.html">Contacts</a></li>
+									<div class="clearfix"> </div>
+							</ul>
+				</div>
+<!--				<div class="social">-->
+<!--						<ul>-->
+<!--							<li><a href="#"><i class="fb"></i></a></li>-->
+<!--							<li><a href="#"><i class="twt"></i></a></li>-->
+<!--							<li><a href="#"><i class="goog"></i></a></li>-->
+<!--								<div class="clearfix"> </div>-->
+<!--						</ul>-->
+<!--					</div>-->
+						<div class="clearfix"> </div>
+			</div>			
+					<!-- script-for-nav -->
+					<script>
+						$( "span.menu" ).click(function() {
+						  $( ".head-nav ul" ).slideToggle(300, function() {
+							// Animation complete.
+						  });
+						});
+					</script>
+				<!-- script-for-nav -->
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" class="img-responsive" alt="" /></a>
+				</div>
+		</div>
+	</div>
+<!-- header -->
+<!-- welcome -->
+	<div class="welcome">
+		<div class="container">
+			<div class="col-md-6 welcome-left">
+				<h1>Welcome to phenotiki.com!</h1>
+				<p>Our mission is to provide a universal turnkey and modular platform for image-based plant phenotyping. We are developing an affordable and easy-to-use system for the acquisition and analysis of digital images, aimed at estimating plant growth.</p>
+				<p>Our research work is partially supported by the EU's FP7 project <a href="http://prian.lab.imtlucca.it/PROJECTS/PHIDIAS/phidias.html">PHIDIAS</a>.</p>
+			</div>
+				<!-- FlexSlider -->
+							  <script defer src="js/jquery.flexslider.js"></script>
+							  <script type="text/javascript">
+								$(function(){
+								  SyntaxHighlighter.all();
+								});
+								$(window).load(function(){
+								  $('.flexslider').flexslider({
+									animation: "slide",
+									start: function(slider){
+									  $('body').removeClass('loading');
+									}
+								  });
+								});
+							  </script>
+							<!-- FlexSlider -->
+							<div class="col-md-6 welcome-right">
+			<section class="slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<img src="images/1.jpg" class="img-responsive" alt="" />	
+						</li>
+						<li>
+							<img src="images/2.jpg" class="img-responsive" alt="" />
+						</li>
+						<li>	
+							<img src="images/3.jpg" class="img-responsive" alt="" />
+						</li>
+					</ul>
+				</div>
+			</section>
+			</div>	
+				<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- welcome -->
+<!-- generation -->
+	<div class="generation">
+		<div class="container">
+			<div class="col-md-8 generation-left">
+				<h2>Overview</h2>
+				<h5>Plant phenotyping in a box.</h5>
+				<p>Our approach to image-based plant phenotyping is based on a distributed sensing and analysis framework. Image acquisition relies on an affordable and versatile imaging sensor (based on the Raspberry Pi platform), that can be easily deployed for experiments in laboratories (growth chambers), greenhouses, or the field. Using state-of-the-art data compression, the acquired images can be efficiently transmitted over the Internet to the iPlant Collaborative cyberinfrastructure, offering cloud-based storage for life sciences research. The image data can be explored and analyzed using our web-based application (running on the Bisque platform), which provides an easy-to-use graphical user interface to perform sophisticated computer vision tasks. Our analysis system allows to delineate plant objects in the images and measure growth-related plant features (e.g., area, rosette diameter, relative growth rate, etc.). Phenotyping results are presented to the user for interpretation and can be downloaded for further statistical analyses.</p>
+				<p>Our solution is affordable and easy to deploy. We will soon provide detailed instructions to:</p>
+				<div class="col-md-6 generation-left1">
+					<div class="icon">
+						<span class="part">1</span>
+					</div>
+					<div class="data">
+						<p>Install and configure the imaging setup, relying on a web-based interface allowing to contrl the sensor remotely (even from a smartphone).</p>
+					</div>
+						<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 generation-left1">
+					<div class="icon">
+						<span class="part">2</span>
+					</div>
+					<div class="data">
+						<p>Analyze the acquired image data using our cloud-based applications available on the Bisque framework of the iPlant Collaborative project.</p>
+					</div>
+						<div class="clearfix"> </div>
+				</div>
+					<div class="clearfix"> </div>
+<!--				<div class="col-md-5 generation-left2">-->
+<!--					<h4>Science to solution</h4>-->
+<!--					<img src="images/img2.jpg" class="img-responsive" alt="" />-->
+<!--					<p>Quisque placerat leo ut commodo condimentum. Sed vel mauris quis risus tristique pharetra. Cras ante nisi, cursus nec est sit amet, dapibus faucib-us libero.</p>-->
+<!--					<a class="more" href="#">Read More</a>-->
+<!--				</div>-->
+<!--				<div class="col-md-5 generation-left3">-->
+<!--					<h4>Today's headlines</h4>-->
+<!--					<h5>Phasellus finibus risus quis magna lobortis auctor. fermentum justo.</h5>-->
+<!--					<p><span>Quisque placerat leo ut</span> commodo condimentum. Sed vel mauris quis risus tristique pharetra. Cras ante nisi,amet.</p>-->
+<!--					<p><span>Fusce sodales tempus</span> commodo condimentum. Sed vel mauris quis risus tristique pharetra. Cras ante cursus.</p>-->
+<!--					<p><span>Fusce sodales tempus</span> commodo condimentum. Sed vel mauris quis risus tristique pharetra. Cras ante nisi, cursus.</p>-->
+<!--					<a class="more" href="#">Read More</a>-->
+<!--				</div>-->
+					<div class="clearfix"> </div>
+			</div>
+			<div class="col-md-4 generate-rig">
+				<div class="generation-right">
+					<h3>recent news</h3>
+					<div class="generation-right1">
+						<div class="icon1">
+							<i class="arw"> </i>
+						</div>
+						<div class="data1">
+							<p>The website phenotiki.com is launched.</p>
+							<span>JAN 30, 2015</span>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+<!--						<a class="see" href="comingsoon.html">See All</a>-->
+				</div>
+<!--				<div class="leter">-->
+<!--					<h4>Newsletters</h4>-->
+<!--					<p>enter your e-mail</p>-->
+<!--					<div class="name">-->
+<!--						<form>-->
+<!--							<input type="text" placeholder="" required="">-->
+<!--						</form>-->
+<!--					</div>	-->
+<!--						<div class="button">-->
+<!--							<form>-->
+<!--								<input type="submit" value="GO">-->
+<!--							</form>-->
+<!--						</div>-->
+<!--							<div class="clearfix"> </div>-->
+<!--				</div>-->
+			</div>
+				<div class="clearfix"> </div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="container">
+		<p>&copy; 2015 Phenotiki | Design by <a target="_blank" href="http://w3layouts.com/">W3layouts</a></p>
+		</div>
+	</div>
+<!-- generation -->
+</body>
+</html>
+				
