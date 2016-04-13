@@ -514,6 +514,13 @@ p.para {
 	font-weight: 300;
 	line-height: 1.8em;
 	margin: 1em 0em;
+	text-align: justify;
+}
+ul.para {
+	font-size: 1.1em;
+	font-weight: 300;
+	line-height: 1.8em;
+	margin: 0em;
 }
 /*--about--*/
 /*-- products-section --*/
