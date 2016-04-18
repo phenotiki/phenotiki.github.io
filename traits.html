@@ -26,6 +26,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 <script src="js/jquery.min.js"></script>
 <script src="js/modernizr.custom.js"></script>
+<link rel="stylesheet" href="css/swipebox.css">
+ <!------ Light Box ------>
+    <script src="js/jquery.swipebox.min.js"></script> 
+    <script type="text/javascript">
+		jQuery(function($) {
+			$(".swipebox").swipebox();
+		});
+	</script>
+    <!------ Eng Light Box ------>
 </head>
 <body>
 <!-- header -->
@@ -39,7 +48,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li><a href="getting_started.html">Getting started</a></li>
 								<li><a href="download.html">Download</a></li>
 								<li><a href="credits.html">Credits</a></li>
-								<li class="active"><a href="contacts.html">Contacts</a></li>
+								<li><a href="contacts.html">Contacts</a></li>
 									<div class="clearfix"> </div>
 							</ul>
 				</div>
@@ -60,34 +69,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 <!-- header -->
-<!-- contacts -->
-<div class="main_bg">
-    <div class="container">
-<!--        <p class="para top" style="color:#cc0000;background-color:#eeeeec;border:1px solid #cc0000;padding:5px;"><strong>Maintenance notice</strong>: we are currently updating our website. We apologize for any inconvenience.</p>-->
-        <div class="main">
-            <div class="abt-para">
-                <h3 class="style">Contact us</h3>
-                <p>To get in touch with us please send us an email to <a href="mailto:phenotiki@gmail.com">phenotiki@gmail.com</a>.</p>
-            </div>
-            <div class="abt-para">
-                <h3 class="style">People</h3>
-                <p>To know more about the Phenotiki team members, please visit our personal pages.</p>
-                <ul>
-                    <li><a target="_blank" href="http://tsaftaris.com">Sotirios A. Tsaftaris</a></li>
-                    <li><a target="_blank" href="https://www.imtlucca.it/massimo.minervini">Massimo Minervini</a></li>
-                    <li><a target="_blank" href="https://www.imtlucca.it/valerio.giuffrida">Mario Valerio Giuffrida</a></li>
-                </ul>
-            </div>
+<!-- news -->
+<div class="container">
+    <div class="about">
+        <h3 class="style">Traits</h3>
+        <div class="col-md-9">
+            <img src="images/traits.jpg" width="500" alt="Traits" />
+            <div class="clearfix"></div>
+            <p class="para">The Phenotiki analysis software can extract the following visual traits from top top-view images of rosette plants.</p>
+            <ul class="para">
+                <li>Projected Leaf Area (PLA, cm<sup>2</sup>): area of the plant calculated based on the number of visible plant pixels.</li>
+                <li>Diameter (cm): the longest distance between any two points on the boundary of the plant.</li>
+                <li>Perimeter (cm): perimeter of the rosette calculated based on the number of boundary pixels.</li>
+                <li>Compactness (or solidity): equals 1 for a perfectly solid object and is &lt; 1 for objects with irregular boundaries or holes.</li>
+                <li>Stockiness (or form factor): ranges between 0 and 1, where 1 is achieved for a perfectly circular object.</li>
+                <li>Leaf count: number of visible plant leaves.</li>
+                <li>Relative Growth Rate (RGR, %h<sup>-1</sup>): measures plant growth between consecutive time instants and is robust to initial differences in size among subjects.</li>
+                <li>Color (°): average intensity of the hue component (H) of the HSV (Hue, Saturation, Value) color space, measured in degrees in the range 0 to 360°.</li>
+            </ul>
         </div>
+        <div class="clearfix"> </div>
     </div>
 </div>
-<!-- contacts -->
-<!-- footer -->
+<!-- news -->
 <div class="footer">
-    <div class="container">
-    <p>&copy; 2015-2016 Phenotiki | Design by <a target="_blank" href="http://w3layouts.com/">W3layouts</a></p>
-    </div>
-</div>
-<!-- footer -->
+		<div class="container">
+		<p>&copy; 2015-2016 Phenotiki | Design by <a target="_blank" href="http://w3layouts.com/">W3layouts</a></p>
+		</div>
+	</div>
 </body>
 </html>

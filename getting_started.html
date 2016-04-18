@@ -68,11 +68,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="col-md-9">
                     <div class="abt-para">
                         <h3 class="style">Overview</h3>
-                        <p class="para">Our approach to image-based plant phenotyping is based on a distributed sensing and analysis framework. Image acquisition relies on an affordable and versatile imaging device (based on the Raspberry Pi single-board computer), that can be easily deployed for experiments with rosette plants in growth chambers or greenhouses. Using data compression and the Wi-Fi capabilities of the Phenotiki device, the acquired images can be easily downloaded to a local workstation. Optionally, the images can also be transmitted over the Internet to the BisQue platform running on the iPlant Collaborative cyberinfrastructure, offering cloud-based storage for life sciences research. The image data can be explored and analyzed on a local workstation using our standalone software, or on the iPlant cloud via web-based application, both providing an easy-to-use graphical user interface to perform sophisticated computer vision tasks. Our analysis system allows to delineate plant objects in the images and measure growth-related plant features (e.g., area, rosette diameter, relative growth rate, &hellip;). Phenotyping results are presented to the user for interpretation and can be exported for further statistical analysis.</p>
+                        <p class="para">Our approach to image-based plant phenotyping is based on a distributed sensing and analysis framework. Image acquisition relies on an affordable and versatile imaging device (based on the Raspberry Pi single-board computer), that can be easily deployed for experiments with rosette plants in growth chambers or greenhouses. The acquired images can be stored on the device or with Wi-Fi can be easily downloaded to a local workstation. Optionally, the images can also be transmitted over the Internet to the BisQue platform running on the iPlant Collaborative cyber-infrastructure, offering cloud-based storage for life sciences research. The image data can be explored and analyzed on a local workstation using our standalone software, or on the iPlant cloud via web-based application, both providing an easy-to-use graphical user interface to perform sophisticated computer vision tasks powered by machine learning approaches. Our analysis system allows to delineate plant objects in the images and measure growth-related plant features (e.g., area, rosette diameter, relative growth rate, &hellip;, and leaf count). Phenotyping results are presented to the user for interpretation and can be exported for further statistical analysis. Click <a href="traits.html">here</a> to see the full range of phenotyping traits extracted by our system.</p>
+                        <p class="para">Currently our paper that describes the platform is under review and the complete software will be made available as soon as possible. If you want to obtain the software prior to its release for testing purposes please <a href="contacts.html">contact us</a>.</p>
                     </div>
                     <div class="abt-para">
                         <h3 class="style">Steps to affordable and easy phenotyping</h3>
-                        <p class="para">We have prepared detailed documentation, download packages, and demos of our plant phenotyping system, that can enable your lab to phenotype growth of rosette plants in few easy steps. You are free to download, use, and modify the Phenotiki software for research purposes. If you do so, please <a href="credits.html">cite</a> relevant papers, as it is described in the <a href="credits.html">Credits</a> page.</p>
+                        <p class="para">We have prepared detailed documentation, download packages, and demos of our plant phenotyping system, that can enable your lab to phenotype growth of rosette plants in few easy steps. Once publicly released you will be free to download, use, and modify the Phenotiki software for research-only purposes. If you do so, you will have to <a href="credits.html">cite</a> relevant papers, as it is described in the <a href="credits.html">Credits</a> page and follow our licence (coming soon) and disclaimer (coming soon).</p>
                         <p class="para"><a href="download.html"><img src="images/download-button.png" class="img-responsive" alt="Download Phenotiki" width="250" /></a></p>
                         <p class="para">Currently we have beta testers throughout the world, if you would like to deploy the system please <a href="contacts.html">contact us</a>.</p>
                     </div>
@@ -119,7 +120,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="col-md-8 cont-grid">
                             <div class="abt-para">
                                 <h4>3. Launch time-lapse image acquisition</h4>
-                                <p class="para">From the web-based interface of the Phenotiki device, launch a time-lapse image acquisition. You can now close the browser and let the device operate autonomously. Images will be stored on the device or automatically transmitted to the BisQue platform on the iPlant cloud infrastructure.</p>
+                                <p class="para">From the web-based interface of the Phenotiki device, launch a time-lapse image acquisition. You can now close the browser and let the device operate autonomously. By default images will be stored on the device.</p>
+                                <p class="para">You can also setup the device to automatically transmit the acquired images to the BisQue platform on the iPlant cloud infrastructure. Note that you need an account for <a target="_blank" href="http://user.iplantcollaborative.org/">iPlant/CyVerse</a> to do that.</p>
                                 <p class="para">Upon completion, open the device interface and download images to a local computer as a ZIP archive. If you configured transmission to BisQue, you can browse the images on the web-based BisQue platform as they are acquired by the device.</p>
                             </div>
                             <div class="clearfix"></div>
@@ -132,7 +134,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <h5>4.1. Standalone software</h5>
                                 <p class="para">The <em>standalone</em> version is implemented in Matlab and offers an easy-to-use graphical interface that integrates modules to perform several analysis tasks such as plant segmentation and leaf counting. <!--The software package can be downloaded as a <a type="application/zip" href="https://github.com/phenotiki/StandaloneAnalysisSoftware/archive/master.zip" download>ZIP archive</a> (a detailed user manual will be available soon). The Matlab source code can be accessed at our <a target="_blank" href="https://github.com/phenotiki/StandaloneAnalysisSoftware">GitHub repository</a>.--></p>
                                 <h5>4.2. Web-based software</h5>
-                                <p class="para">The <em>web-based</em> version is deployed on the iPlant Collaborative cloud infrastructure. The analysis modules will be made available soon on the <a target="_blank" href="http://bisque.iplantcollaborative.org/client_service/">BisQue platform</a> (a CyVerse/iPlant user account will be necessary to log in). <!--The source code of the analysis modules is available as a <a target="_blank" href="https://github.com/phenotiki/BisQue">GitHub repository</a>.--></p>
+                                <p class="para">The <em>web-based</em> version is deployed on the iPlant Collaborative cloud infrastructure. The analysis modules will be made available soon on the <a target="_blank" href="http://bisque.iplantcollaborative.org/client_service/">BisQue platform</a> (an iPlant/CyVerse user account will be necessary to log in). <!--The source code of the analysis modules is available as a <a target="_blank" href="https://github.com/phenotiki/BisQue">GitHub repository</a>.--></p>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -148,12 +150,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-md-4 cont-grid-img img_style">
+                            <img src="images/traits.jpg" class="img-responsive" alt="Traits" />
                             <img src="images/flexslider_img_06.png" class="img-responsive" alt="Results" />
+                            <br />
                         </div>
                         <div class="col-md-8 cont-grid">
                             <div class="abt-para">
                                 <h4>5. Obtain phenotyping results</h4>
-                                <p class="para">Visualize phenotyping results by plotting several growth traits over time. Results can also be exported to spreadsheets for further analysis.</p>
+                                <p class="para">Visualize phenotyping results by plotting several growth traits over time. Results can also be exported to spreadsheets for further analysis. We extract several traits such as projected leaf area, rosette diameter, and leaf count. Please see <a href="traits.html">this page</a> for a detailed list of the traits currently extracted.</p>
                             </div>
                             <div class="clearfix"></div>
                         </div>
