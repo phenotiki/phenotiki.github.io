@@ -162,8 +162,8 @@ i.goog:hover{
 	text-align: left;
 	margin: 9em 0em 0em 5em;
 }
-.welcome {
-	margin:3em 0em;
+.welcome, body > div.container {
+	padding:3em 0em;
 }
 .welcome-left h1{
 	font-size:3em;
@@ -1512,4 +1512,26 @@ a.b-home {
 .head-nav span.menu {
 	top: 19px;
 }
+}
+
+ul.changelog
+{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+}
+
+ul.changelog li ul
+{
+	list-style-type: none;
+}
+ul.changelog li ul li:before
+{
+	content:"\2014\00A0";
+	text-indent: -5px;
+}
+
+.hidden
+{
+	display: none;
 }

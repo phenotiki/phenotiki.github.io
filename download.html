@@ -27,6 +27,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link rel="shortcut icon" href="favicon.png" />
 <script src="js/jquery.min.js"></script>
 <script src="js/modernizr.custom.js"></script>
+<script type="text/javascript">
+    $(window).load(function(){
+        $("#phenotiki_changelog_link").click(function(){
+            $("#phenotiki_changelog").fadeIn("slow");
+            $.get("PHENOTIKI_CHANGELOG.html",function(data){
+                $("#phenotiki_changelog .box-content").html(data);
+            });
+            
+        });
+    })
+</script>
+
 </head>
 <body>
 <!-- header -->
@@ -71,6 +83,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <p class="para">Currently our paper that describes the platform is under review and the complete software will be made available as soon as possible. Upon its release it will be free to use for academic purposes and its Matlab source code will be made available to the users. We are also working towards creating pre-compiled versions that do not require a Matlab installation.  Standard disclaimers of liability (that we hold none) will apply. We are working towards identifying the best license that enables the development and continuity of Phenotiki.</p>
             <p class="para">To obtain the software prior to its release for testing purposes please fill out this <img src="images/google-forms.png" />&nbsp;<a target="_blank" href="https://docs.google.com/forms/d/1Wo7BS_Re6NoDHddrkOh-M10_SMo5YvJO6G324Av1Txk/viewform">form</a>. A <img src="images/application-pdf.png" />&nbsp;<a target="_blank" type="application/pdf" href="downloads/Phenotiki-AnalysisSoftware.pdf">user manual</a> is also available.<!--<br /><strong>Important: the download form is in preparation and will be published soon!</strong>--></p>
 <!--            <p class="para">Prior to downloading the software, please ensure that you carefully read and understand the terms and conditions of the <a target="_blank" type="text/plain" href="downloads/LICENSE.txt">license</a>.</p>-->
+            <p class="para">Our software is always under development, thanks also to all the beta tester that are collaborating across the World to improve it. You may find a <a href="#" id="phenotiki_changelog_link">CHANGELOG here</a>.</p>
             <p class="para">In the meantime to help people with setting up Phenotiki devices and start collecting data we make certain parts of our software solution publicly available.</p>
 <!--            <p class="para">You are free to download, use, and modify the Phenotiki software for research purposes. If you do so, please <a href="credits.html">cite</a> relevant papers.</p>-->
         </div>
@@ -89,6 +102,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <p class="para">The download package of the Phenotiki software includes demo images of Arabidopsis that can be used to try out the software. If you are interested in obtaining the complete dataset, we have prepared a collection of benchmark datasets for image-based plant phenotyping. We provide annotated imaging data and suitable evaluation criteria for plant/leaf segmentation, detection, tracking as well as classification and regression problems. The Plant Phenotyping Datasets are available for download at a dedicated <a target="_blank" href="http://www.plant-phenotyping.org/datasets-home">website</a>.</p>
         </div>
     </div>
+
+    <div class="col-md-4 generate-rig">
+        <div class="generation-right" id="phenotiki_changelog" style="display:none">
+            <h3>Phenotiki CHANGELOG</h3>
+            <div class="box-content">
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
 </div>
 <!-- download -->
 <!-- footer -->
