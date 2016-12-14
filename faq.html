@@ -1,0 +1,217 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Phenotiki - Plant Phenotyping in a Box</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-69585521-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="favicon.png" />
+<script src="js/jquery.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+
+<script>
+jQuery(document).ready(function(){
+	jQuery('.faq_sect').each(function(){
+		title = jQuery(this).find('h3').html().replace("FAQ","");
+		content = jQuery('#faq_toc').html() +"<h4>"+title+"</h4>";
+
+		list ="";
+
+		jQuery(this).find(".faq_question").each(function(){
+			list += "<li><a href='#'>"+  jQuery(this).html() +"</a></li>";
+		})
+
+		list ="<ol>"+list+"<ol>";
+
+		jQuery('#faq_toc').html(content + list);
+
+	});
+
+	lis = jQuery('#faq_toc').find('li');
+	questions = jQuery(".faq_question");
+
+	for (i=0;i<lis.length;i++)
+	{
+		jQuery(lis[i]).find('a').on('click',{idx:i},function(event){
+			jQuery(window).scrollTop(jQuery(questions[event.data.idx]).offset().top);
+			event.preventDefault();
+		});
+	}
+
+
+	 var $sidebar   = $("#faq_toc"), 
+        $window    = $(window),
+        offset     = $sidebar.offset(),
+        topPadding = 15;
+
+    $window.scroll(function() {
+        if ($window.scrollTop() > offset.top) {
+            $sidebar.stop().animate({
+                marginTop: $window.scrollTop() - offset.top + topPadding
+            },100);
+        } else {
+            $sidebar.stop().animate({
+                marginTop: 0
+            },100);
+        }
+    });
+})
+</script>
+
+</head>
+<body>
+<!-- header -->
+	<div class="banner1">
+		<div class="container">
+			<div class="header">
+				<div class="head-nav">
+						<span class="menu"> </span>
+							<ul class="cl-effect-1">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="getting_started.html">Getting started</a></li>
+								<li><a href="download.html">Download</a></li>
+								<li><a href="credits.html">Credits</a></li>
+								<li><a href="contacts.html">Contacts</a></li>
+									<div class="clearfix"> </div>
+							</ul>
+				</div>
+						<div class="clearfix"> </div>
+			</div>			
+					<!-- script-for-nav -->
+					<script>
+						$( "span.menu" ).click(function() {
+						  $( ".head-nav ul" ).slideToggle(300, function() {
+							// Animation complete.
+						  });
+						});
+					</script>
+				<!-- script-for-nav -->
+				<div class="logo1">
+					<a href="index.html"><img src="images/logo.png" class="img-responsive" alt="" /></a>
+				</div>
+		</div>
+	</div>
+<!-- header -->
+<!-- contacts -->
+
+    <div class="container">
+        <div class="main col-md-8">
+            <div class="abt-para faq_sect">
+                <h3 class="style">Device FAQ</h3>
+                <div class="faq faq_question">Where can I find the list of items to build-up a Phenotiki Acquisition Device?</div>
+                <div class="faq faq_answer">You can find a complete list of the equipment needed to build your sensor in the <a href="getting_started.html#obtain">Getting Started</a> page.</div>
+
+                <div class="faq faq_question">The camera flat cable is too short. Is there anyway I can get a longer cable?</div>
+                <div class="faq faq_answer">It is available a <a href="http://bitwizard.nl/shop/raspberry-pi/Raspberry-Pi-Camera-extension-kit">Raspberry Pi Camera Extension kit</a>.</div>
+
+				<div class="faq faq_question">Is it possible to access the web interface outside our University/Laboratory/Institute?</div>
+                <div class="faq faq_answer">Generally speaking, it is possible. If your institute has some firewall blocking any access from the outside, you need to contact your IT service and ask how to configure a <a href="https://en.wikipedia.org/wiki/Virtual_private_network">VPN</a> in your computer. By configuring a VPN, you can access your Raspberry Pi using the local IP address.</div>                
+
+            </div>
+            <div class="abt-para faq_sect">
+                <h3 class="style">Analysis Software FAQ</h3>
+                <div class="faq faq_question">Phenotiki is telling me that <em>libsvm</em> was successfully installed, but I get some errors in the Matlab console. How can I fix it?</a></div>
+                <div class="faq faq_answer">Generally, this problem appears when you do not have a suitable C compiler installed and/or configured in your system. Please, <a href="https://uk.mathworks.com/support/sysreq/previous_releases.html" target="_blank">follow this instruction for your operating system</a> to solve the issue. If you believe the problem is something else, do not hesitate to <a href="contacts.html">contact us</a>.</div>
+
+                <div class="faq faq_question">How can I move the data to/from another workstation?</div>
+                <div class="faq faq_answer">If you wish to share data with colleagues or move the them to another workstation, you simply need to copy the plant's image files and the database file with <em>.mat</em> extension that was generated by the modules. When you load your data on the new workstation, the software will ask you to provide the path where images are located. Please, provide the new location of the images on the new workstation.</div>
+
+                <div class="faq faq_question">Some computations take too long. How can I abort them?</div>
+                <div class="faq faq_answer">Unfortunately, it is not possible to abort a computation. Since our software is based on MATLAB and it is single-threaded, we could not add any mechanism to cancel long computations. However, if you are running Phenotiki from the Source Code, you may press CTRL+Z, as you would do for any computation in MATLAB, to abort.</div>
+
+                <div class="faq faq_question">I am experiencing problems with <em>mclmcr.dll</em>. How can I solve it?</div>
+                <div class="faq faq_answer">If you have errors saying \textit{mclmcr.dll not found}, it could be either of the following: (i) MCR not installed, (ii) MCR installation corrupted, (iii) Older version of the library installed in a different directory. Specifically, we suggest:
+	                <ol type="i">
+	                	<li>Download the Installer of Phenotiki and/or make sure you are installing MCR</li>
+	                	<li>Different solutions can be found <a href="https://uk.mathworks.com/matlabcentral/answers/101146-why-do-i-receive-an-error-message-of-mclmcr-dll-not-found-while-deploying-my-application-on-a-targ" target="_blank">on-line</a>. Search for MCR on your system and delete all the files related to it. Then, go to the point (i)</li>
+	                	<li>Search on your system for the <em>mclmcr.dll</em>. It can happen it is located within the System32 directory of Windows. Locate and remove it. Then, go to the step (ii)</li>
+	                </ol>
+            	</div>
+
+                <div class="faq faq_question">I downloaded Phenotiki and I cannot unzip the provided zip file. How can I decompress it?</div>
+                <div class="faq faq_answer">Sometimes on Linux systems, you may experience the error <em>"An error occurred while extracting files"</em>. If you have the zip file containing Phenotiki in your <em>Desktop</em> folder, try to move it file in any other folder different than the <em>Desktop</em> and try again.</div>
+
+                <div class="faq faq_question">Phenotiki does not work properly under Linux virtual machines. How can I work this around?</div>
+                <div class="faq faq_answer">We experienced issues using MATLAB/Phenotiki on Parallels (for Mac), depending on MATLAB and we were unable to fix them. We do not recommend using Parallels with Phenotiki on a virtual Linux Operating System.</div>
+
+                <div class="faq faq_question">Using the Pot Tray Analysis, I cannot find suitable parameters. What can I do?</div>
+                <div class="faq faq_answer">Finding good parameters for the plant segmentation may not be immediate for challenging datasets. If you have fair results and you want to improve them, then we suggest to select a few images to trial different configurations. In the unluckily case that segmentation results are not accurate enough, we suggest to run a <em>grid search</em>. With this method, the software will automatically test a range of parameters and find optimal ones according to some supervision.
+
+				First, segment manually a few of plant images using an external image editing software (e.g., GIMP, Photoshop). Create a black-and-white (also known as binary) image with just 0's and 1's, where 0 (black) marks background area and 1 (white) marks plant area. When you are done with this, open the Phenotiki Analysis Software and go to Pot Tray Analysis tool and load your dataset. Then, from the list of images, select one plant image for which you have manually created the foreground/background segmentation and press the right-button of your mouse, then select <em>Set ground-truth</em>. When the file selection window appears, select the corresponding mask for this image and repeat this operation for all the plant images for which you have manually obtained the segmentation mask.
+
+				Then press on the <em>Setting</em> button in the bottom part of the Pot Tray Analysis Tool and press on <em>Advanced Options</em>. The full list of parameters will appear and you may choose the ones you want to include in the grid search, by ticking the check-boxes in the list. When you choose a parameter, you may define a range of values that the software will test against the ground-truth you have provided before. Ranges can be set in the following way.
+
+				<ul>
+					<li><strong>Numeric values:</strong> MATLAB syntax is accepted. For example:
+						<ul>
+							<li>explicit list of values to test: [0, 10, 20, 30, 40, 50];</li>
+							<li>all the values between 0 and 50 with a step of 10: 0:10:50;</li>
+						</ul>
+					</li>
+
+					<li><strong>Text values:</strong> cell array MATLAB syntax is accepted. Some examples are:
+						<ul>
+							<li><em>{Feature1, Feature2}</em>: the software will use <em>Feature1</em> and <em>Feature2</em> separately;</li>
+							<li><em>{Feature1,Feature2}, {Feature1,Feature3}</em>: the software will test the best combination between Feature1 and Features2, or Feature1 and Feature3.</li>
+						</ul>
+					</li>
+
+					<li><strong>Boolean values:</strong> for Boolean values you do not need to specify range of values, as they can be either 0 or 1.</li>
+				</ul>
+
+				</div>
+
+				<div class="faq faq_question">What are the allowed values for the paramters?</div>
+                <div class="faq faq_answer">Whilst integers parameters may accept any value, we suggest you to vary them by small amounts. For further details on the pararemters selection, we reccomand to read the corresponding sections in the <a href="download.html">user manual</a>.</div>
+
+                <div class="faq faq_question">A leaf is split in half by another leaf. What should I do?</div>
+                <div class="faq faq_answer">We suggest to add an annotation with the same label to the different part of the leaf. Once you annotated one part, select from the annotation list the label corresponding to the newly created label and annotated the other part of the leaf. This will result with two annotations with the same label. Once you are finished, select the <em>&lt;new label&gt;</em> to annotate a new leaf.</div>
+
+                <div class="faq faq_question">In the leaf labeling tool, is it possible to keep the labels consistent accross time</div>
+                <div class="faq faq_answer">If you want to assign the same label to the same leaf across time, we recommend to start the annotation from the first time instant (or the last). Then, move to the next time instant and, from the list of labels, click with the right-button of your mouse and select <em>Copy from the previous plant</em> (or <em>Copy from the next plant</em>). In this way, annotations are copied with consistent numeric identifiers. Then, adapts the copied labels to adjust to growth and movement of the plant and add new labels if necessary.</div>
+
+                <div class="faq faq_question">Part of a leaf is assigned to another leaf. How can I make the leaf segmentation more precise?</div>
+                <div class="faq faq_answer">Use more refined annotation (such as lines or freehand scribbles) to better delineate the image region of each leaf.</div>
+            </div>
+        </div>
+
+        <div class="col-md-4 generate-rig">
+        	<div class="generation-right" id="faq_toc">
+        		<h3>Table of Contents</h3>
+        	</div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+<!-- contacts -->
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+    <p>&copy; 2015-2016 Phenotiki | Design by <a target="_blank" href="http://w3layouts.com/">W3layouts</a></p>
+    </div>
+</div>
+<!-- footer -->
+</body>
+</html>

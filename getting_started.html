@@ -13,7 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ if (window.scrollY == 0) window.scrollTo(0,1); } </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -61,12 +61,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 <!-- header -->
-<div class="main_bg">
+
     <div class="container">
         <div class="main">
 <!--        <p class="para top" style="color:#cc0000;background-color:#eeeeec;border:1px solid #cc0000;padding:5px;"><strong>Maintenance notice</strong>: we are currently updating our website. We apologize for any inconvenience.</p>-->
             <div class="main">
-                <div class="col-md-9">
+                <div class="col-md-8">
                     <div class="abt-para">
                         <h3 class="style">Overview</h3>
                         <p class="para">Our approach to image-based plant phenotyping is based on a distributed sensing and analysis framework. Image acquisition relies on an affordable and versatile imaging device (based on the Raspberry Pi single-board computer), that can be easily deployed for experiments with rosette plants in growth chambers or greenhouses. The acquired images can be stored on the device or with Wi-Fi can be easily downloaded to a local workstation. Optionally, the images can also be transmitted over the Internet to the BisQue platform running on the iPlant Collaborative cyber-infrastructure, offering cloud-based storage for life sciences research. The image data can be explored and analyzed on a local workstation using our standalone software, or on the iPlant cloud via web-based application, both providing an easy-to-use graphical user interface to perform sophisticated computer vision tasks powered by machine learning approaches. Our analysis system allows to delineate plant objects in the images and measure growth-related plant features (e.g., area, rosette diameter, relative growth rate, &hellip;, and leaf count). Phenotyping results are presented to the user for interpretation and can be exported for further statistical analysis. Click <a href="traits.html">here</a> to see the full range of phenotyping traits extracted by our system.</p>
@@ -84,7 +84,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                         <div class="col-md-8 cont-grid">
                             <div class="abt-para">
-                                <h4>1. Obtain the Phenotiki device</h4>
+                                <h4 id="obtain"><a name="obtain">1. Obtain the Phenotiki device</a></h4>
                                 <p class="para">Obtain hardware components of the imaging device.</p>
                                 <ul class="para">
                                     <li>Raspberry Pi 1 Model B (or higher);</li>
@@ -163,10 +163,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="clearfix"></div>
                     </div>
                 </div>
+
+                <div class="col-md-4 generate-rig">
+                    <div class="generation-right" >
+                        <h3>Have you had any problems?</h3>
+                        <p>&nbsp;&mdash; Read the <a href="faq.html">FAQ</a></p>
+                        <p>&nbsp;&mdash; Visit our <a href="https://groups.google.com/forum/?hl=en-GB#!forum/phenotiki" target="_blank">Google Group</a></p>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
             </div>
         </div>
     </div>
-</div>
 <!-- footer -->
 <div class="footer">
     <div class="container">
