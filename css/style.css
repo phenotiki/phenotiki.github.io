@@ -305,6 +305,11 @@ a.more2:hover{
 	text-transform:uppercase;
 	text-align:center;
 }
+
+.warning {
+	background-color: #FFECC2;
+}
+
 span {
 	font-size: 1.1em;
 	color: #477615;
