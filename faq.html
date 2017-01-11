@@ -39,7 +39,7 @@ jQuery(document).ready(function(){
 		list ="";
 
 		jQuery(this).find(".faq_question").each(function(){
-			list += "<li><a href='#'>"+  jQuery(this).html() +"</a></li>";
+			list += "<li><a href='#'>"+  jQuery(this).text() +"</a></li>";
 		})
 
 		list ="<ol>"+list+"<ol>";
@@ -122,11 +122,47 @@ jQuery(document).ready(function(){
                 <div class="faq faq_question">Where can I find the list of items to build-up a Phenotiki Acquisition Device?</div>
                 <div class="faq faq_answer">You can find a complete list of the equipment needed to build your sensor in the <a href="getting_started.html#obtain">Getting Started</a> page.</div>
 
+                <div class="faq faq_question">I followed all the steps in the <a href="downloads/Phenotiki-Device.pdf">Phenotiki Device Guide</a>, but the web server will not start after entering the &ldquo;../bin/pserve development.ini&rdquo; command. </div>
+                <div class="faq faq_answer">Firstly, make sure if you are connected to the Internet. Secondly, make sure that the network you are connected to allows hosting a local webserver. If everything is fine with the Internet, you may be missing some required packages. Use the following commands and then go through the installation guide again.
+				
+				<div class="linux_shell">$ sudo apt-get install libxml2-dev libxslt-dev
+					$ cd ~/phenotiki/env/
+					$ bin/pip install requests-toolbelt
+				</div>
+				</div>
+
+				<div class="faq faq_question">How can I found out the IP address of my Raspberry PI?</div>
+                <div class="faq faq_answer">It is possible to find out the IP address using the command ifconfig in the terminal. If you are connected to WiFi the address will be displayed in the <strong>wlan0</strong> section. If you are connected via Ethernet cable the address will be displayed in the <strong>eth0</strong> section. In either case, you need to look for a line similar to <strong>inet addr: 10.99.78.101</strong>.
+				</div>
+
+				<div class="faq faq_question">I get error(s) when accessing to the webserver interface.</div>
+                <div class="faq faq_answer">If there is an error you can go back to the home page by typing in the webserver address in your browser again. If the error persists, go through the installation steps again as there may be a package missing.</div>
+
                 <div class="faq faq_question">The camera flat cable is too short. Is there anyway I can get a longer cable?</div>
                 <div class="faq faq_answer">It is available a <a href="http://bitwizard.nl/shop/raspberry-pi/Raspberry-Pi-Camera-extension-kit">Raspberry Pi Camera Extension kit</a>.</div>
 
+                <div class="faq faq_question">My Raspberry Pi restarted and now the webserver is not working.</div>
+                <div class="faq faq_answer">If the Raspberry Pi restarts the raspistillWeb application needs to be initialized again from the command line as follows:
+
+                <div class="linux_shell">$ cd /home/pi/Development/env/bin/pserve development.ini</div>
+
+                 There is the a way to have the raspistillWeb application start automatically with the following steps.
+				<ol>
+					<li>Create a startup script <div class="linux_shell">$ sudo nano /etc/init.d/raspistillweb</div></li>
+					<li>Type in the following lines save and exit.</li>
+						<div class="linux_shell">#!/bin/bash
+						cd /home/pi/Development/env/raspistillWeb
+						../bin/pserve development.ini</div></li>
+
+					<li>Make the script executable: <div class="linux_shell">$ sudo chmod 755 /etc/init.d/raspistillweb</div></li>
+					<li>Register the script to be run at startup: <div class="linux_shell">$ sudo update-rc.d /etc/init.d/raspistillweb defaults</div></li>
+				</ol>
+				</div>
+
+                
+
 				<div class="faq faq_question">Is it possible to access the web interface outside our University/Laboratory/Institute?</div>
-                <div class="faq faq_answer">Generally speaking, it is possible. If your institute has some firewall blocking any access from the outside, you need to contact your IT service and ask how to configure a <a href="https://en.wikipedia.org/wiki/Virtual_private_network">VPN</a> in your computer. By configuring a VPN, you can access your Raspberry Pi using the local IP address.</div>                
+                <div class="faq faq_answer">Generally speaking, it is possible. If your institute has some firewall blocking any access from the outside, you need to contact your IT service and ask how to configure a <a href="https://en.wikipedia.org/wiki/Virtual_private_network">VPN</a> in your computer. By configuring a VPN, you can access your Raspberry Pi using the local IP address. Another way we recommend is to install <a href="https://www.teamviewer.com" target="_blank">TeamViewer</a> on your Raspberry Pi and your computer.</div>
 
             </div>
             <div class="abt-para faq_sect">

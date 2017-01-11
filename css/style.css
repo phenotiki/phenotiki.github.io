@@ -1558,11 +1558,22 @@ div.faq_question:before{
 	content: "Q: " ;
 }
 
+div.linux_shell
+{
+	font-family: monospace;
+	background-color: black;
+	padding:5px;
+	color:#00ff00;
+	white-space: pre-line;
+	margin:10px 0px 10px 0px;
+}
+
 div.faq_answer
 {
 	padding-bottom: 10px;
 	border-bottom: 1px solid #eeeeee;
 	margin-bottom:10px;
+	text-align: justify;
 }
 
 
