@@ -164,6 +164,17 @@ jQuery(document).ready(function(){
 				<div class="faq faq_question">Is it possible to access the web interface outside our University/Laboratory/Institute?</div>
                 <div class="faq faq_answer">Generally speaking, it is possible. If your institute has some firewall blocking any access from the outside, you need to contact your IT service and ask how to configure a <a href="https://en.wikipedia.org/wiki/Virtual_private_network">VPN</a> in your computer. By configuring a VPN, you can access your Raspberry Pi using the local IP address. Another way we recommend is to install <a href="https://www.teamviewer.com" target="_blank">TeamViewer</a> on your Raspberry Pi and your computer.</div>
 
+                <div class="faq faq_question">How do I remove raspstillWeb from my Raspberry PI?</div>
+                <div class="faq faq_answer">You ccan remove raspstillWeb by using the following command:
+				
+				<div class="linux_shell">$ sudo rm -rf /home/pi/phenotiki</div>
+
+				If you have also the start-up script (see above), you may also run the following commands:
+				<div class="linux_shell">$ sudo update-rc.d /etc/init.d/raspistillweb remove
+				$ rm /etc/init.d/raspistillweb
+				</div>
+				</div>
+
             </div>
             <div class="abt-para faq_sect">
                 <h3 class="style">Analysis Software FAQ</h3>
