@@ -111,7 +111,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           date = data.wg[i]['c'][0].v.reformat()
           prof_role_item = data.wg[i]['c'][4].v;
           prim_use_item = data.wg[i]['c'][6].v;
-          level_exp_item = data.wg[i]['c'][5].v;
+          level_exp_item = data.wg[i]['c'][5].v==null?"":data.wg[i]['c'][5].v;
           os_item = data.wg[i]['c'][9].v;
           heard_about_item = data.wg[i]['c'][12].v;
 
