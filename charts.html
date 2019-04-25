@@ -47,7 +47,7 @@
       // instantiates the pie chart, passes in the data and
       // draws it.
       function drawChart() {
-        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1oDY8fJBwIORJEG3z1X-Xx9JsEDOZsra6ESwSXagDNj8')//('https://docs.google.com/spreadsheets/d/1zOvcf68hjaDmJ_ur4eaJn0oLzEVKx49O5Htx0oWFIj4/edit?usp=sharing');
+        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1zOvcf68hjaDmJ_ur4eaJn0oLzEVKx49O5Htx0oWFIj4/edit?usp=sharing');
         query.send(handleQueryResponse);
       }
 
@@ -239,9 +239,5 @@
     <div id="os_div" style="width:800; height:500"></div>
     <div id="heard_about_div" style="width:800; height:800"></div>
     <div id="cum_downloads_div" style="width:1000; height:400"></div>
-
-    <button id="authorize-button" style="visibility: hidden">Authorize</button>
-    <script src="./auth.js" type="text/javascript"></script>
-    <script src="https://apis.google.com/js/auth.js?onload=init"></script>
   </body>
 </html>

@@ -1,0 +1,332 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Phenotiki - Plant Phenotyping in a Box</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-69585521-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="favicon.png" />
+<script src="js/jquery.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<link rel="stylesheet" href="css/swipebox.css">
+ <!------ Light Box ------>
+    <script src="js/jquery.swipebox.min.js"></script> 
+    <script type="text/javascript">
+		jQuery(function($) {
+			$(".swipebox").swipebox();
+		});
+	</script>
+    <!------ Eng Light Box ------>
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+
+     var data;
+     var chart;
+
+      // Load the Visualization API and the piechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      function searchKeyword(array,column,kw){
+        for (k=0;k<array.length;k++){
+          if (array[k][column]==kw){
+            return k
+          }
+        }
+
+        return -1;
+      }
+
+      function searchDate(array,column,date){
+        for (k=0;k<array.length;k++){
+          if (array[k][column].getTime()==date.getTime()){
+            return k
+          }
+        }
+
+        return -1;
+      }
+
+      String.prototype.capitalize = function() {
+          return this.charAt(0).toUpperCase() + this.slice(1);
+      }
+
+      Date.prototype.reformat = function(){
+        return new Date(this.getFullYear(),this.getMonth(),1,0,0,0,0);
+      }
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1zOvcf68hjaDmJ_ur4eaJn0oLzEVKx49O5Htx0oWFIj4/edit?usp=sharing');
+        query.send(handleQueryResponse);
+      }
+
+      function handleQueryResponse(response) {
+        var data = response.getDataTable();
+         
+        prof_role_arr_data = [];
+        primary_use_arr_data = [];
+        level_exp_pp_arr_data = [];
+        os_arr_data = [];
+        heard_about_arr_data=[];
+        cumulative_downloads_arr_data = [];
+
+        minDate = new Date(data.wg[0]['c'][0].v);
+        maxDate = new Date(data.wg[data.wg.length-1]['c'][0].v);
+
+        curr = new Date(minDate);
+
+        while( curr < maxDate){
+          cumulative_downloads_arr_data[cumulative_downloads_arr_data.length] = [ curr.reformat(),0 ]
+          curr.setMonth(curr.getMonth() + 1);
+        }
+
+
+        for (i=0;i<data.wg.length;i++)
+        {
+          date = data.wg[i]['c'][0].v.reformat()
+          prof_role_item = data.wg[i]['c'][4].v;
+          prim_use_item = data.wg[i]['c'][6].v;
+          level_exp_item = data.wg[i]['c'][7].v;
+          os_item = data.wg[i]['c'][9].v;
+          heard_about_item = data.wg[i]['c'][12].v;
+
+
+          kws = prof_role_item.split(',')
+
+          for (j=0;j<kws.length;j++){
+            //prof role
+            kw = kws[j].trim()
+            pos = searchKeyword(prof_role_arr_data,0,kw)
+            if (pos>=0){
+              prof_role_arr_data[pos][1]++;
+            }
+            else{
+              prof_role_arr_data[prof_role_arr_data.length] = [kw,1]
+            }
+          }
+
+          //primary use
+          pos = searchKeyword(primary_use_arr_data,0,prim_use_item);
+          if (pos>=0){
+            primary_use_arr_data[pos][1]++;
+          }
+          else{
+            primary_use_arr_data[primary_use_arr_data.length] = [prim_use_item,1]
+          }
+
+          //level experience
+          if (level_exp_item.length==0){
+            level_exp_item = 'Unknowun/Unspecified'
+          }
+
+          kws = level_exp_item.split(',')
+          
+          for (j=0;j<kws.length;j++){
+            level_exp = kws[j].trim();
+            pos = searchKeyword(level_exp_pp_arr_data,0,level_exp)
+            if (pos>=0){
+              level_exp_pp_arr_data[pos][1]++;
+            }
+            else{
+              level_exp_pp_arr_data[level_exp_pp_arr_data.length] = [level_exp,1]
+            }
+
+            //os data
+
+            kws = os_item.split('and')
+
+            for (j=0;j<kws.length;j++){
+              //prof role
+              kw = kws[j].trim()
+
+              kw = kw.replace("Microsoft","");
+              kw = kw.trim().capitalize();
+
+
+              if ((kw != "Windows") && (kw!="Linux") && (kw!="Mac OS X")){
+                kw = "Others";
+              } 
+
+              pos = searchKeyword(os_arr_data,0,kw)
+              if (pos>=0){
+                os_arr_data[pos][1]++;
+              }
+              else{
+                os_arr_data[os_arr_data.length] = [kw,1]
+              }
+            }
+
+            //heard about
+            heard_about_item = heard_about_item.capitalize()
+            
+
+            if (heard_about_item.indexOf("Talk")>=0){
+              heard_about_item="Talk"
+            }
+
+            if (heard_about_item.indexOf("IPPN")>=0){
+              heard_about_item="Conference"
+            }
+
+            if ((heard_about_item.indexOf("olleague")>=0)||(heard_about_item.indexOf("riend")>=0) ||(heard_about_item.indexOf("Prof")>=0)  ||(heard_about_item.indexOf("Masi")>=0) ){
+              heard_about_item="From a colleauge or friend"
+            }
+
+            if ((heard_about_item.indexOf("lant")>=0) && (heard_about_item.indexOf("mage")>=0) && (heard_about_item.indexOf("nalysis")>=0)){
+              heard_about_item = "From www.plant-image-analysis.org"
+            }
+
+            pos = searchKeyword(heard_about_arr_data,0,heard_about_item);
+
+            if (pos>=0){
+              heard_about_arr_data[pos][1]++;
+            }
+            else{
+              heard_about_arr_data[heard_about_arr_data.length] = [heard_about_item,1]
+            }
+
+            //cumulative downloads
+            pos = searchDate(cumulative_downloads_arr_data,0,date);
+            cumulative_downloads_arr_data[pos][1]++;
+          }
+        }
+
+        for (i=1;i<cumulative_downloads_arr_data.length;i++)
+        {
+          cumulative_downloads_arr_data[i][1] += cumulative_downloads_arr_data[i-1][1]
+        }
+
+
+
+
+
+        prof_role_arr_data.unshift(['Professional role','Frequency'])
+        prof_role_data = google.visualization.arrayToDataTable(prof_role_arr_data)
+
+        primary_use_arr_data.unshift(['Primary Use','Frequency'])
+        primary_use_data = google.visualization.arrayToDataTable(primary_use_arr_data)
+
+        level_exp_pp_arr_data.unshift(['Level of Experience','Frequency'])
+        level_exp_pp_data = google.visualization.arrayToDataTable(level_exp_pp_arr_data)
+
+        os_arr_data.unshift(['OS','Frequency'])
+        os_data = google.visualization.arrayToDataTable(os_arr_data)
+
+        heard_about_arr_data.unshift(['Source','Frequency'])
+        heard_about_data = google.visualization.arrayToDataTable(heard_about_arr_data)
+
+        cumulative_downloads_arr_data.unshift(['Date','Downloads'])
+        cumulative_downloads_data  = google.visualization.arrayToDataTable(cumulative_downloads_arr_data)
+
+
+        var prof_role_chart = new google.visualization.PieChart(document.getElementById('prof_role_div'));
+        prof_role_chart.draw(prof_role_data, {title:"Professional Roles"});
+
+        var use_chart = new google.visualization.PieChart(document.getElementById('use_div'));
+        use_chart.draw(primary_use_data, {title:"Primary Uses"});
+
+        var level_exp_chart = new google.visualization.PieChart(document.getElementById('level_exp_div'));
+        level_exp_chart.draw(level_exp_pp_data, {title:"Level of experience in image-based plant phenotyping"});
+
+        var os_chart = new google.visualization.PieChart(document.getElementById('os_div'));
+        os_chart.draw(os_data, {title:"Used Operating Systems"});
+
+        var heard_about_chart = new google.visualization.PieChart(document.getElementById('heard_about_div'));
+        heard_about_chart.draw(heard_about_data, {title:"How did you heard about Phenotiki?"});
+
+        var cum_downlods_chart = new google.visualization.LineChart(document.getElementById('cum_downloads_div'));
+        cum_downlods_chart.draw(cumulative_downloads_data, {title:"Cumulative dowloads of Phenotiki",hAxis:{format:"M/yy" , slantedText:true, slantedTextAngle:45},legend:false});
+      }
+
+    </script>
+</head>
+<body>
+<!-- header -->
+	<div class="banner1">
+		<div class="container">
+			<div class="header">
+				<div class="head-nav">
+						<span class="menu"> </span>
+							<ul class="cl-effect-1">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="getting_started.html">Getting started</a></li>
+								<li><a href="download.html">Download</a></li>
+								<li class="active"><a href="credits.html">Credits</a></li>
+								<li><a href="contacts.html">Contacts</a></li>
+									<div class="clearfix"> </div>
+							</ul>
+				</div>
+						<div class="clearfix"> </div>
+			</div>			
+					<!-- script-for-nav -->
+					<script>
+						$( "span.menu" ).click(function() {
+						  $( ".head-nav ul" ).slideToggle(300, function() {
+							// Animation complete.
+						  });
+						});
+					</script>
+				<!-- script-for-nav -->
+				<div class="logo1">
+					<a href="index.html"><img src="images/logo.png" class="img-responsive" alt="" /></a>
+				</div>
+		</div>
+	</div>
+<!-- header -->
+<!-- credits -->
+<div class="main_bg">
+    <div class="container">
+        <div class="main">
+            <div class="col-md-9">
+                <div class="abt-para">
+                    <h2 class="style">Impact of Phenotiki</h2>
+                    
+					<div id="prof_role_div" style="width:800; height:500"></div>
+				    <div id="use_div" style="width:800; height:500"></div>
+				    <div id="level_exp_div" style="width:800; height:500"></div>
+				    <div id="os_div" style="width:800; height:500"></div>
+				    <div id="heard_about_div" style="width:800; height:800"></div>
+				    <div id="cum_downloads_div" style="width:1000; height:400"></div>
+
+                </div>
+			    <div class="clearfix"> </div>
+			    <br /><br />
+			</div>
+        </div>
+    </div>
+</div>
+<!-- credits -->
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+    <p>&copy; 2015-2016 Phenotiki | Design by <a target="_blank" href="http://w3layouts.com/">W3layouts</a></p>
+    </div>
+</div>
+<!-- footer -->
+</body>
+</html>
