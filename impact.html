@@ -246,6 +246,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
         var prof_role_chart = new google.visualization.PieChart(document.getElementById('prof_role_div'));
+        google.visualization.events.addListener(prof_role_chart, 'ready', function () {
+	      document.getElementById('prof_role_div').innerHTML = '<img src="' + prof_role_chart.getImageURI() + '">';
+	    });
+	    
         prof_role_chart.draw(prof_role_data, {title:"Professional Roles"});
 
         var use_chart = new google.visualization.PieChart(document.getElementById('use_div'));
