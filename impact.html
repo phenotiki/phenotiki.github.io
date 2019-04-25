@@ -253,7 +253,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         prof_role_chart.draw(prof_role_data, {title:"Professional Roles"});
 
         var use_chart = new google.visualization.PieChart(document.getElementById('use_div'));
-        google.visualization.events.addListener(prof_role_chart, 'ready', function () {
+        google.visualization.events.addListener(use_chart, 'ready', function () {
 	      document.getElementById('use_div').innerHTML = '<img src="' + use_chart.getImageURI() + '">';
 	    });
         use_chart.draw(primary_use_data, {title:"Primary Uses"});
@@ -265,7 +265,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         level_exp_chart.draw(level_exp_pp_data, {title:"Level of experience in image-based plant phenotyping"});
 
         var os_chart = new google.visualization.PieChart(document.getElementById('os_div'));
-        google.visualization.events.addListener(level_exp_chart, 'ready', function () {
+        google.visualization.events.addListener(os_chart, 'ready', function () {
 	      document.getElementById('os_div').innerHTML = '<img src="' + os_chart.getImageURI() + '">';
 	    });
         os_chart.draw(os_data, {title:"Used Operating Systems"});
@@ -274,7 +274,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         heard_about_chart.draw(heard_about_data, {title:"How did you heard about Phenotiki?"});*/
 
         var cum_downlods_chart = new google.visualization.LineChart(document.getElementById('cum_downloads_div'));
-        google.visualization.events.addListener(level_exp_chart, 'ready', function () {
+        google.visualization.events.addListener(cum_downlods_chart, 'ready', function () {
 	      document.getElementById('cum_downloads_div').innerHTML = '<img src="' + cum_downlods_chart.getImageURI() + '">';
 	    });
         cum_downlods_chart.draw(cumulative_downloads_data, {title:"Cumulative dowloads of Phenotiki",hAxis:{format:"M/yy" , slantedText:true, slantedTextAngle:45},legend:false});
