@@ -277,7 +277,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         google.visualization.events.addListener(cum_downlods_chart, 'ready', function () {
 	      document.getElementById('cum_downloads_div').innerHTML = '<img src="' + cum_downlods_chart.getImageURI() + '">';
 	    });
-        cum_downlods_chart.draw(cumulative_downloads_data, {title:"Cumulative dowloads of Phenotiki",hAxis:{format:"M/yy" , slantedText:true, slantedTextAngle:45},legend:false});
+        cum_downlods_chart.draw(cumulative_downloads_data, {title:"Cumulative dowloads of Phenotiki",hAxis:{format:"M/yy" , slantedText:true, slantedTextAngle:45},legend:'none'});
       }
 
     </script>
