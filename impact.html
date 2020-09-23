@@ -50,6 +50,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       // Set a callback to run when the Google Visualization API is loaded.
       google.charts.setOnLoadCallback(drawChart);
 
+      function drawChart() {
+        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1zOvcf68hjaDmJ_ur4eaJn0oLzEVKx49O5Htx0oWFIj4/edit?usp=sharing');
+        query.send(handleQueryResponse);
+      }
+
       function searchKeyword(array,column,kw){
         for (k=0;k<array.length;k++){
           if (array[k][column]==kw){
@@ -81,15 +86,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       // Callback that creates and populates a data table,
       // instantiates the pie chart, passes in the data and
       // draws it.
-      function drawChart() {
-        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1zOvcf68hjaDmJ_ur4eaJn0oLzEVKx49O5Htx0oWFIj4/edit?usp=sharing');
-        query.send(handleQueryResponse);
-      }
+
 
       function handleQueryResponse(response) {
         var data = response.getDataTable();
+
+        data.wg = data.fg;
          
         prof_role_arr_data = [];
+        country_arr_data = [];
         primary_use_arr_data = [];
         level_exp_pp_arr_data = [];
         os_arr_data = [];
@@ -110,6 +115,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         for (i=0;i<data.wg.length;i++)
         {
           date = data.wg[i]['c'][0].v.reformat()
+          country_item = data.wg[i]['c'][3].v;
           prof_role_item = data.wg[i]['c'][4].v;
           prim_use_item = data.wg[i]['c'][6].v;
           level_exp_item = data.wg[i]['c'][5]==null?"":data.wg[i]['c'][5].v;
@@ -129,6 +135,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             else{
               prof_role_arr_data[prof_role_arr_data.length] = [kw,1]
             }
+          }
+
+          //country
+          pos = searchKeyword(country_arr_data,0,country_item);
+          if (pos>=0){
+            country_arr_data[pos][1]++;
+          }
+          else{
+            country_arr_data[country_arr_data.length] = [country_item,1]
           }
 
           //primary use
@@ -222,7 +237,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           cumulative_downloads_arr_data[i][1] += cumulative_downloads_arr_data[i-1][1]
         }
 
+        //get remove unknown countries for the time being
+        unk = undefined
+        for (i=0;i<country_arr_data.length;i++){
+          if (country_arr_data[i][0]=="Unknown"){
+            unk = country_arr_data[i]
+            country_arr_data.splice(i,1)
+          }
+        }
 
+        //sort in dec order
+        country_arr_data.sort(function(a,b){
+          return b[1] - a[1]
+        })
+
+        if (country_arr_data.length>=8){
+          count = 0
+
+          for (i=8;i<country_arr_data.length;i++){
+            count += country_arr_data[i][1]
+          }
+
+          country_arr_data = country_arr_data.slice(0,8)
+          country_arr_data = country_arr_data.concat([["Other Countries",count],unk])
+        }
 
 
 
@@ -231,6 +269,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         primary_use_arr_data.unshift(['Primary Use','Frequency'])
         primary_use_data = google.visualization.arrayToDataTable(primary_use_arr_data)
+
+        country_arr_data.unshift(['Country','Frequency'])
+        country_data = google.visualization.arrayToDataTable(country_arr_data)
 
         level_exp_pp_arr_data.unshift(['Level of Experience','Frequency'])
         level_exp_pp_data = google.visualization.arrayToDataTable(level_exp_pp_arr_data)
@@ -257,6 +298,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	      document.getElementById('use_div').innerHTML = '<img src="' + use_chart.getImageURI() + '">';
 	    });
         use_chart.draw(primary_use_data, {title:"Primary Uses"});
+
+        var country_chart = new google.visualization.BarChart(document.getElementById('country_div'));
+        google.visualization.events.addListener(country_chart, 'ready', function () {
+        document.getElementById('use_div').innerHTML = '<img src="' + country_chart.getImageURI() + '">';
+      });
+        country_chart.draw(country_data, {title:"Downloads by Country"});
 
         var level_exp_chart = new google.visualization.PieChart(document.getElementById('level_exp_div'));
         google.visualization.events.addListener(level_exp_chart, 'ready', function () {
@@ -324,6 +371,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <h2 class="style">Impact of Phenotiki</h2>
                     
                     <div id="cum_downloads_div" style="width:100%; height:400px"></div>
+                    <div id="country_div" style="width:100%; height:400px"></div>
 					<div id="level_exp_div" style="width:100%; height:500px"></div>
 					<div id="prof_role_div" style="width:100%; height:500px"></div>
 				    <div id="use_div" style="width:100%; height:500px"></div>
